@@ -26,7 +26,7 @@ describe(`Articles service object`, () => {
     }
   ]
 
-  before(() => {
+  before('set up db', () => {
     db = knex({
       client: 'pg',
       connection: process.env.TEST_DB_URL
@@ -118,47 +118,3 @@ describe(`Articles service object`, () => {
       })
   })
 })
-
-
-
-
-// const ArticlesService = require('../src/articles-service');
-// const knex = require('knex');
-
-// describe('Articles service object', function() {
-//   let db;
-
-
-//   before(() => {
-//     db = knex({
-//       client: 'pg',
-//       connection: process.env.TEST_DB_URL,
-//     });
-//   });
-
- 
-
-//   after(() => db.destroy());
-
-//   before(() => db('blogful_articles').truncate());
-
-//   // describe(`getAllArticles()`, () => {
-//     context(`Given 'blogful_articles' has data`, () => {
-//       before(() => {
-//         return db 
-//           .into('blogful_articles')
-//           .insert(testArticles);
-//       });
-//     })
-//     it(`getAllArticles() resolves all articles from 'blogful_articles' table`, () => {
-//       // test that ArticlesService.getAllArticles gets data from table
-//       return ArticlesService.getAllArticles(db)
-//         .then(actual => {
-//           expect(actual).to.eql(testArticles.map(article => ({
-//             ...article,
-//             date_published: new Date(article.date_published)
-//           })));
-//         });
-//     });
-//   });
-// // });
