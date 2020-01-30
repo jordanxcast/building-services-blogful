@@ -1,7 +1,6 @@
 const ShoppingListService = {
   getAllItems(knex){
     return knex.select('*').from('shopping_list');
-    // return db('shopping_list').select('*');
   },
   insertItem(db, data){
     // insert new item into the shopping_list table
